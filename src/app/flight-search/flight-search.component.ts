@@ -16,6 +16,8 @@ export class FlightSearchComponent implements OnInit {
     5: true
   }
 
+  delayFilter = false;
+
   from = 'Hamburg';
   to = 'Graz';
   flights: Array<Flight> = [];

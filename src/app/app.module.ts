@@ -20,11 +20,16 @@ import { StatusColorPipe } from './status-color.pipe';
       FormsModule
    ],
    declarations: [
+      // Shell
       AppComponent,
       SidebarComponent,
       NavbarComponent,
+
+      // Flight Booking
       FlightSearchComponent,
       FlightCardComponent,
+
+      // Shared
       DateComponent,
       CityPipe,
       StatusFilterPipe,

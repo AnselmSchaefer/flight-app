@@ -5,35 +5,29 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { FlightSearchComponent } from './flight-search/flight-search.component';
-import { FormsModule } from '@angular/forms';
-import { FlightCardComponent } from './flight-card/flight-card.component';
-import { DateComponent } from './date/date.component';
-import { CityPipe } from './city.pipe';
-import { StatusFilterPipe } from './status-filter.pipe';
-import { StatusColorPipe } from './status-color.pipe';
+import { FlightBookingModule } from './flight-booking/flight-booking.module';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { APP_ROUTES } from './app.routes';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
    imports: [
       BrowserModule,
       HttpClientModule,
-      FormsModule
+      FlightBookingModule,
+      RouterModule.forRoot(APP_ROUTES)
    ],
    declarations: [
       // Shell
       AppComponent,
       SidebarComponent,
       NavbarComponent,
-
-      // Flight Booking
-      FlightSearchComponent,
-      FlightCardComponent,
-
-      // Shared
-      DateComponent,
-      CityPipe,
-      StatusFilterPipe,
-      StatusColorPipe
+      HomeComponent,
+      AboutComponent,
+      NotFoundComponent,
    ],
    providers: [],
    bootstrap: [

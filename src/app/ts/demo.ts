@@ -1,4 +1,4 @@
-import { Flight } from '../flight';
+import { Flight } from '../flight-booking/flight';
 import { FlightManager } from './flight-manager';
 import { ScheduledFlight } from './scheduled-flight';
 import { CharterFlight } from './charter-flight';

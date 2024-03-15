@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 import { FLIGHT_BOOKING_ROUTES } from './flight-booking.routes';
 import { RouterModule } from '@angular/router';
+import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { FlightBookingComponent } from './flight-booking.component';
 
 
 
@@ -20,7 +22,9 @@ import { RouterModule } from '@angular/router';
   declarations: [
     FlightSearchComponent,
     FlightCardComponent,
-    PassengerSearchComponent
+    PassengerSearchComponent,
+    FlightEditComponent,
+    FlightBookingComponent
   ],
   exports: [
     FlightSearchComponent

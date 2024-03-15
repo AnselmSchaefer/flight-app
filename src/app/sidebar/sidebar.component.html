@@ -15,7 +15,14 @@
                 <p>Home</p>
             </a>
         </li>
+        
+        <li routerLinkActive="active">
+          <a routerLink="flight-booking">
+            <p>Flight Booking</p>
+          </a>
+        </li>
 
+        <!--
         <li routerLinkActive="active">
             <a routerLink="flight-search">
                 <p>Flights</p>
@@ -27,14 +34,22 @@
                 <p>Passengers</p>
             </a>
         </li>
+      -->
 
         <li routerLinkActive="active">
             <a routerLink="about">
                 <p>About</p>
             </a>
         </li>
+        <!--
         <li routerLinkActive="active">
-            <a>
+            <a [routerLink]="[{outlets: {aux: 'basket'}}]">
+                <p>Basket</p>
+            </a>
+        </li>
+      -->
+        <li routerLinkActive="active">
+            <a [routerLink]="[{outlets: {primary: 'flight-booking/flight-search', aux: 'basket'}}]">
                 <p>Basket</p>
             </a>
         </li>

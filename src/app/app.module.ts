@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { APP_ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
+import { BasketComponent } from './basket/basket.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { RouterModule } from '@angular/router';
       HomeComponent,
       AboutComponent,
       NotFoundComponent,
+      BasketComponent,
    ],
    providers: [],
    bootstrap: [

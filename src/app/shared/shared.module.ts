@@ -5,6 +5,8 @@ import { CityPipe } from './city.pipe';
 import { StatusFilterPipe } from './status-filter.pipe';
 import { StatusColorPipe } from './status-color.pipe';
 import { FormsModule } from '@angular/forms';
+import { CityValidationDirective } from './validation/city-validation.directive';
+import { RoundTripValidationDirective } from './validation/round-trip-validation.directive';
 
 
 
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     DateComponent,
     CityPipe,
     StatusFilterPipe,
-    StatusColorPipe
+    StatusColorPipe,
+    CityValidationDirective,
+    RoundTripValidationDirective
   
   ],
   exports: [
@@ -26,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     StatusFilterPipe,
     StatusColorPipe,
 
-    CommonModule
+    CommonModule,
+    CityValidationDirective,
   ]
 })
 export class SharedModule { }

@@ -1,52 +1,76 @@
 <!-- src/app/flight-search/flight-search.component.html -->
 
-<div class="form-group">
-    <label>From:</label>
-    <input [(ngModel)]="from" class="form-control" placeholder="From" title="From">
-</div>
+<form #f="ngForm" appRoundTrip>
 
-<div class="form-group">
-    <label>To:</label>
-    <input [(ngModel)]="to" class="form-control" placeholder="To" titel="To">
-</div>
-
-<div class="form-group">
-    <label>Date:</label>
-    <app-date [(date)]="date"></app-date>
-</div>
-
-<div class="form-group">
-    <input [(ngModel)]="delayFilter" type="checkbox" id="delayFilter" name="delayFilter">
-    &nbsp;
-    <label for="delayFilter">Delay</label>
-</div>
-
-<div class="form-group">
-    <button class="btn btn-default" (click)="search()" [disabled]="!from || !to">
-        Search
-    </button>
-</div>
-<div class="row">
-    <div *ngFor="let f of flights | statusFilter:delayFilter" class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <app-flight-card 
-            [item]="f" 
-            [(selected)]="basket[f.id]">
-        </app-flight-card>
+    <div class="error" *ngIf="f?.errors">
+        {{ f?.errors | json }}
     </div>
-</div>
 
-<!--
-<table class="table table-striped">
-    <tr *ngFor="let flight of flights"
-            [ngClass]="{ 'active': flight === selectedFlight }">
-        <td> {{flight.id}} </td>
-        <td> {{flight.from}} </td>
-        <td> {{flight.to}} </td>
-        <td> {{flight.date}} </td>
-        <td><a (click)="select(flight)">Select</a></td>
-    </tr>
-</table>
--->
+    <div class="error" *ngIf="f?.hasError('appRoundTrip')">
+        Round Trips are not supported!
+    </div>
 
-<b>Basket</b>
-<pre>{{ basket | json }}</pre>
+    <div class="form-group">
+        <label>From:</label>
+        <input [(ngModel)]="from" [ngModelOptions]="{ updateOn: 'blur' }" name="from" appCity class="form-control" required minlength="3" placeholder="From" title="From">
+        
+        <div class="error" *ngIf="!f?.controls?.['from']?.valid">Es liegen Validierungsfehler fuer diese Eingabe vor.</div>
+        <div class="error" *ngIf="f?.controls?.['from']?.hasError('appCity')">Dieser Flughafen existiert nicht. </div>
+        
+        <div class="error" *ngIf="f?.controls?.['from']?.hasError('required')">Dieses Feld ist ein Pflichtfeld</div>
+        <div class="error" *ngIf="f?.controls?.['from']?.hasError('minlength')">Die Mindestlaenge betraegt 3 Zeichen</div>
+        
+        <div class="error" *ngIf="f?.controls?.['from']?.errors">
+            <pre>{{f?.controls?.['from']?.errors?.['appCity']?.allowedCities | json}} </pre>
+           <!-- <pre>Internes Errors-Objekt:{{ f?.controls?.['from']?.errors | json }}</pre> -->
+        </div>
+    
+    </div>
+
+
+    <div class="form-group">
+        <label>To:</label>
+        <input [(ngModel)]="to" name="to" class="form-control" placeholder="To" titel="To">
+    </div>
+
+    <div class="form-group">
+        <label>Date:</label>
+        <app-date [(date)]="date"></app-date>
+    </div>
+
+    <div class="form-group">
+        <input [(ngModel)]="delayFilter" type="checkbox" id="delayFilter" name="delayFilter">
+        &nbsp;
+        <label for="delayFilter">Delay</label>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-default" (click)="search()" [disabled]="!f?.valid">
+            Search
+        </button>
+    </div>
+    <div class="row">
+        <div *ngFor="let f of flights | statusFilter:delayFilter" class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+            <app-flight-card 
+                [item]="f" 
+                [(selected)]="basket[f.id]">
+            </app-flight-card>
+        </div>
+    </div>
+
+    <!--
+    <table class="table table-striped">
+        <tr *ngFor="let flight of flights"
+                [ngClass]="{ 'active': flight === selectedFlight }">
+            <td> {{flight.id}} </td>
+            <td> {{flight.from}} </td>
+            <td> {{flight.to}} </td>
+            <td> {{flight.date}} </td>
+            <td><a (click)="select(flight)">Select</a></td>
+        </tr>
+    </table>
+    -->
+
+    <b>Basket</b>
+    <pre>{{ basket | json }}</pre>
+</form>

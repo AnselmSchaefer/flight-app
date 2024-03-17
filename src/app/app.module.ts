@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { APP_ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { BasketComponent } from './basket/basket.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { BasketComponent } from './basket/basket.component';
       AboutComponent,
       NotFoundComponent,
       BasketComponent,
+      HighlightDirective,
    ],
    providers: [],
    bootstrap: [

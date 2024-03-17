@@ -10,6 +10,7 @@ type NumberBooleanDict = { [key: number]: boolean };
   styleUrls: ['./flight-search.component.scss']
 })
 export class FlightSearchComponent implements OnInit {
+  
 
   basket: NumberBooleanDict = {
     3: true,

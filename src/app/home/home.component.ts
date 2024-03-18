@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { simpleObservable } from '../shared/observable-factories';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = 'Home: Flight App';
+
+  //constructor
+
+  constructor() {
+    const simple$ = simpleObservable();
+    simple$.subscribe({
+      next: value => console.log('next', value),
+      error: err => console.log('error', err),
+      complete: () => console.log('complete')
+    });
+  }
 }

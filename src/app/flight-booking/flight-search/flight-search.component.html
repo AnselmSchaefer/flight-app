@@ -45,6 +45,28 @@
     </div>
 
     <div class="form-group">
+        <label>
+            <input [(ngModel)]="nonstop" type="checkbox" name="nonstop">
+            &nbsp;
+            Nonstop
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Flight Class</label>
+        <div *ngFor="let c of flightClasses">
+            <label>
+                <input
+                 type="radio"
+                 name="flightClass"
+                 [(ngModel)]="flightClass"
+                 [value]="c">
+                {{c.name}}
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
         <button class="btn btn-default" (click)="search()" [disabled]="!f?.valid">
             Search
         </button>

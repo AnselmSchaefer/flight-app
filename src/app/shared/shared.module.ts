@@ -32,6 +32,7 @@ import { RoundTripValidationDirective } from './validation/round-trip-validation
 
     CommonModule,
     CityValidationDirective,
+    RoundTripValidationDirective
   ]
 })
 export class SharedModule { }

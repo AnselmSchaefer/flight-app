@@ -28,6 +28,6 @@ import { FlightBookingComponent } from './flight-booking.component';
   ],
   exports: [
     FlightSearchComponent
-  ]
+  ],
 })
 export class FlightBookingModule { }

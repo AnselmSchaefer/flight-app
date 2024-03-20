@@ -1,8 +1,10 @@
+import { ElementRef } from '@angular/core';
 import { HighlightDirective } from './highlight.directive';
 
 describe('HighlightDirective', () => {
   it('should create an instance', () => {
-    const directive = new HighlightDirective();
+    let el: ElementRef;
+    const directive = new HighlightDirective(el);
     expect(directive).toBeTruthy();
   });
 });

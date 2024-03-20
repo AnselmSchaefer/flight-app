@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FlightEditComponent } from './flight-edit.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FlightTypeaheadComponent } from './flight-typeahead.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('FlightEditComponent', () => {
-  let component: FlightEditComponent;
-  let fixture: ComponentFixture<FlightEditComponent>;
+describe('FlightTypeaheadComponent', () => {
+  let component: FlightTypeaheadComponent;
+  let fixture: ComponentFixture<FlightTypeaheadComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FlightEditComponent],
+      declarations: [FlightTypeaheadComponent],
       imports: [HttpClientTestingModule,ReactiveFormsModule,RouterTestingModule, FormsModule]
     });
-    fixture = TestBed.createComponent(FlightEditComponent);
+    fixture = TestBed.createComponent(FlightTypeaheadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

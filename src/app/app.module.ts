@@ -13,6 +13,8 @@ import { APP_ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { BasketComponent } from './basket/basket.component';
 import { HighlightDirective } from './highlight.directive';
+import { FlightTypeaheadComponent } from './flight-typeahead/flight-typeahead.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { HighlightDirective } from './highlight.directive';
       BrowserModule,
       HttpClientModule,
       FlightBookingModule,
+      ReactiveFormsModule,
       RouterModule.forRoot(APP_ROUTES)
    ],
    declarations: [
@@ -32,6 +35,7 @@ import { HighlightDirective } from './highlight.directive';
       NotFoundComponent,
       BasketComponent,
       HighlightDirective,
+      FlightTypeaheadComponent,
    ],
    providers: [],
    bootstrap: [

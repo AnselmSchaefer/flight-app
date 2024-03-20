@@ -53,6 +53,11 @@ export class FlightSearchComponent implements OnInit {
   
 
   search(): void {
+
+    if(!this.from || !this.to) {
+      return;
+    }
+    
     const observerOrNext: Partial<Observer<Flight[]>> = {
       next: (flights) => {
         this.flights = flights;
